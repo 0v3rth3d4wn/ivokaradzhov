@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,5 +6,37 @@
 @layer base {
   body {
     @apply font-sans;
+    --primary: #5B0E7F;
+    --secondary: #F707CF;
+    --tertiary: #65FFF5; /** change also in tailwind config **/
   }
+}
+
+.square {
+  aspect-ratio: 1 / 1;
+}
+
+p strong,
+p a {
+  @apply font-bold text-secondary;
+}
+
+p a {
+  @apply border-b-2 border-solid border-transparent transition-colors duration-200;
+}
+
+p a:hover,
+p a:focus {
+  @apply border-secondary;
+}
+
+.button-border::after {
+  content: "";
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  border-top: 2rem solid transparent;
+  border-bottom: 2rem solid transparent;
+  border-left: 2rem solid green;
+  left: 100%;
 }

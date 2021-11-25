@@ -1,0 +1,22 @@
+[
+  {
+    "text": "About",
+    "to": "/about",
+    "key": "about"
+  },
+  {
+    "text": "Skills",
+    "to": "/skills",
+    "key": "skills"
+  },
+  {
+    "text": "Work",
+    "to": "/work",
+    "key": "work"
+  },
+  {
+    "text": "Contact",
+    "to": "/work",
+    "key": "contact"
+  }
+]

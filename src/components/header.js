@@ -1,10 +1,42 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
+import useScrollPosition from '@react-hook/window-scroll'
 import Nav from './nav'
+import Logo from '../assets/images/logo.svg'
 
-const Header = () => (
-  <header>
-    <Nav />
-  </header>
-)
+const Header = () => {
+  const headerHeight = 56
+  const scrollY = useScrollPosition(60)
+  let isHeaderVisible = true
+
+  // Use useRef to store the previous value of scrollY
+  const prevScrollYRef = useRef(0)
+
+  // Store the current scrollY after the render method
+  useEffect(() => {
+    prevScrollYRef.current = scrollY
+  }, [scrollY])
+
+  /**
+   * If the current scrollY value is smaler or equals to
+   * the previous scrollY value - we are scrolling up (we are closer to the top) and then showing the header,
+   * otherwise we are scrolling down (the current scrollY becomes larger) thus we are hiding the header
+   */
+  isHeaderVisible = scrollY <= prevScrollYRef.current
+
+  return (
+    <>
+      <header
+        className={`px-8 py-8 fixed top-0 left-0 right-0 w-full flex flex-wrap items-center justify-between z-40 ${
+          scrollY < headerHeight ? 'bg-transparent' : 'bg-primary shadow py-4'
+        } duration-300 transition-all delay-[100ms] ${
+          isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
+        }`}
+      >
+        <Logo />
+        <Nav />
+      </header>
+    </>
+  )
+}
 
 export default Header

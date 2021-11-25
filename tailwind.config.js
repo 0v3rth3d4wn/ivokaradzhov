@@ -4,14 +4,24 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      colors: {
+        primary: 'var(--primary)',
+        secondary: 'var(--secondary)',
+        tertiary: '#65FFF5',
+        white: '#ffffff',
+        transparent: 'transparent',
+      },
       fontFamily: {
         sans: [
-          'Roboto',
+          'Inter',
           'ui-sans-serif',
           'system-ui',
           '-apple-system',
           'sans-serif',
         ],
+      },
+      spacing: {
+        22: '5.5rem',
       },
     },
   },

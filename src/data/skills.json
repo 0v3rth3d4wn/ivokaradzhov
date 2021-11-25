@@ -1,0 +1,56 @@
+[
+  {
+    "title": "Skills",
+    "subtitle": "This is what I do (and more)",
+    "skills": [
+      {
+        "name": "WordPress",
+        "icon": "wordpress"
+      },
+      {
+        "name": "WooCommerce",
+        "icon": "woocommerce"
+      },
+      {
+        "name": "Nginx",
+        "icon": "nginx"
+      },
+      {
+        "name": "React",
+        "icon": "react"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
+        "name": "Gatsby",
+        "icon": "gatsbyjs"
+      },
+      {
+        "name": "Webpack",
+        "icon": "webpack"
+      },
+      {
+        "name": "GraphQL",
+        "icon": "graphql"
+      },
+      {
+        "name": "Git",
+        "icon": "git"
+      },
+      {
+        "name": "Sass",
+        "icon": "sass"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "tailwindcss"
+      },
+      {
+        "name": "Bootstrap",
+        "icon": "bootstrap"
+      }
+    ]
+  }
+]
