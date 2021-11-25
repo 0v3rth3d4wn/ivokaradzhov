@@ -21,7 +21,7 @@ const Header = () => {
    * the previous scrollY value - we are scrolling up (we are closer to the top) and then showing the header,
    * otherwise we are scrolling down (the current scrollY becomes larger) thus we are hiding the header
    */
-  isHeaderVisible = scrollY <= prevScrollYRef.current
+  isHeaderVisible = scrollY <= prevScrollYRef.current || scrollY < headerHeight
 
   return (
     <>

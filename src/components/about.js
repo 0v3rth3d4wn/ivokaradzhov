@@ -37,6 +37,7 @@ const About = () => {
           height={192}
           alt={name}
           className="rounded-full bg-gradient mb-6"
+          quality="90"
         />
         <div className="text-white uppercase text-2xl text-center font-bold">
           {name}

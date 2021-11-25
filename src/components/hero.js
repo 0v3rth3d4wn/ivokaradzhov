@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react'
 import useMouse from '@react-hook/mouse-position'
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useTransform } from 'framer-motion'
 import useScrollPosition from '@react-hook/window-scroll'
 import { useWindowWidth } from '@react-hook/window-size'
 
@@ -18,6 +18,8 @@ import '../styles/hero.css'
 const Hero = () => {
   const heroRef = useRef()
   const triangleRef = useRef()
+  const triangleRefs = useRef([])
+  const miniTriangles = [...Array(288).keys()]
   const scrollY = useScrollPosition(60)
   const windowWidth = useWindowWidth()
   const mountainBackLeftRef = useRef()
@@ -25,10 +27,31 @@ const Hero = () => {
   const mountainFrontLeftRef = useRef()
   const mountainFrontRightRef = useRef()
 
+  function getCenter(element) {
+    const { left, top, width, height } = element.getBoundingClientRect()
+    return { x: left + width / 2, y: top + height / 2 }
+  }
+
+  useEffect(() => {
+    const mountainBackLeftWidth =
+      mountainBackLeftRef.current.getBoundingClientRect().width
+    const mountainBackRightWidth =
+      mountainBackRightRef.current.getBoundingClientRect().width
+    const mountainFrontLeftWidth =
+      mountainFrontLeftRef.current.getBoundingClientRect().width
+    const mountainFrontRightWidth =
+      mountainFrontRightRef.current.getBoundingClientRect().width
+
+    mountainBackLeftRef.current.style.marginLeft = `-${mountainBackLeftWidth}px`
+    mountainBackRightRef.current.style.marginRight = `-${mountainBackRightWidth}px`
+    mountainFrontLeftRef.current.style.marginLeft = `-${mountainFrontLeftWidth}px`
+    mountainFrontRightRef.current.style.marginRight = `-${mountainFrontRightWidth}px`
+  }, [windowWidth])
+
   const Triangle = React.forwardRef(({ style }, ref) => (
     <svg
       ref={ref}
-      className="absolute top-28 left-1/2 -translate-x-1/2 z-[9]"
+      className="absolute top-28 left-1/2 -translate-x-1/2 z-[12] origin-center lg:scale-[2] lg:top-[350px]"
       width="274.01208"
       height="246.02499"
       fill="none"
@@ -64,64 +87,95 @@ const Hero = () => {
 
   Triangle.displayName = 'Triangle'
 
-  useEffect(() => {
-    const mountainBackLeftWidth =
-      mountainBackLeftRef.current.getBoundingClientRect().width
-    const mountainBackRightWidth =
-      mountainBackRightRef.current.getBoundingClientRect().width
-    const mountainFrontLeftWidth =
-      mountainFrontLeftRef.current.getBoundingClientRect().width
-    const mountainFrontRightWidth =
-      mountainFrontRightRef.current.getBoundingClientRect().width
+  const MiniTriangle = React.forwardRef((props, ref) => (
+    <svg
+      width="11"
+      height="10"
+      viewBox="0 0 11 10"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      ref={ref}
+      className="origin-center"
+    >
+      <path
+        d="M5.49639 9.12451L0.342366 0.197471L10.6504 0.197472L5.49639 9.12451Z"
+        fill="#641C94"
+      />
+    </svg>
+  ))
 
-    mountainBackLeftRef.current.style.marginLeft = `-${mountainBackLeftWidth}px`
-    mountainBackRightRef.current.style.marginRight = `-${mountainBackRightWidth}px`
-    mountainFrontLeftRef.current.style.marginLeft = `-${mountainFrontLeftWidth}px`
-    mountainFrontRightRef.current.style.marginRight = `-${mountainFrontRightWidth}px`
-  }, [windowWidth])
+  MiniTriangle.displayName = 'Mini'
+
+  const angle = useMotionValue(0)
+  function handleMouse(event) {
+    miniTriangles.forEach((element, index) => {
+      angle.set(
+        Math.atan2(
+          event.clientY - getCenter(triangleRefs.current[index]).y,
+          event.clientX - getCenter(triangleRefs.current[index]).x
+        )
+      )
+      triangleRefs.current[
+        index
+      ].style.transform = `rotate(${angle.current}rad) translateX(-50%)`
+    })
+  }
 
   return (
-    <div
+    <motion.div
       ref={heroRef}
       className="relative pt-24 h-screen overflow-x-hidden hero"
+      onMouseMove={handleMouse}
     >
       <HeroPattern className="absolute top-0 left-1/2 -translate-x-1/2 z-[11]" />
       <motion.div
         ref={mountainBackLeftRef}
-        className="absolute left-[60%] z-[10] bottom-[287px]"
-        animate={{ translateX: (1 - scrollY) / 3 }}
+        className="absolute left-[50%] z-[10] bottom-[287px]"
+        animate={{ translateX: (1 - scrollY) / 5 }}
       >
         <MountainBackLeft />
       </motion.div>
       <motion.div
         ref={mountainBackRightRef}
-        className="absolute right-[60%] z-[10] bottom-[217px]"
-        animate={{ translateX: scrollY / 6 }}
+        className="absolute right-[50%] z-[10] bottom-[217px]"
+        animate={{ translateX: scrollY / 10 }}
       >
         <MountainBackRight />
       </motion.div>
       <motion.div
         ref={mountainFrontLeftRef}
-        className="absolute left-[60%] z-[10] bottom-[148px]"
-        animate={{ translateX: (1 - scrollY) / 9 }}
+        className="absolute left-[50%] z-[10] bottom-[149px]"
+        animate={{ translateX: (1 - scrollY) / 12 }}
       >
         <MountainFrontLeft />
       </motion.div>
       <motion.div
         ref={mountainFrontRightRef}
-        className="absolute right-[60%] z-[10] bottom-[78px]"
-        animate={{ translateX: scrollY / 12 }}
+        className="absolute right-[50%] z-[10] bottom-[77px]"
+        animate={{ translateX: scrollY / 17 }}
       >
         <MountainFrontRight />
       </motion.div>
+      <motion.div>
+        <Triangle ref={triangleRef} />
+      </motion.div>
 
-      <Triangle ref={triangleRef} className="z-[12]" />
       <HeroGrid className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[9]" />
-      <Name className="absolute top-40 left-1/2 -translate-x-1/2 z-10" />
-      <h1 className="text-white top-72 px-8 absolute z-10 text-2xl font-bold uppercase text-center w-full">
+      <Name className="absolute top-40 left-1/2 -translate-x-1/2 z-[12] lg:scale-[2] lg:top-[400px]" />
+      {/* <h1 className="text-white top-72 px-8 absolute z-10 text-2xl font-bold uppercase text-center w-full">
         Web Developer
-      </h1>
-    </div>
+      </h1> */}
+
+      <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-4 absolute left-1/2 -translate-x-1/2 top-[400px]">
+        {miniTriangles &&
+          miniTriangles.map((triangle, index) => (
+            <MiniTriangle
+              key={triangle}
+              ref={element => (triangleRefs.current[index] = element)}
+            />
+          ))}
+      </div>
+    </motion.div>
   )
 }
 
