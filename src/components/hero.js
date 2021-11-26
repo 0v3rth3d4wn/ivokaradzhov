@@ -124,8 +124,8 @@ const Hero = () => {
   return (
     <motion.div
       ref={heroRef}
-      className="relative pt-24 h-screen overflow-x-hidden hero"
-      onMouseMove={handleMouse}
+      className="relative h-screen pt-24 overflow-x-hidden hero"
+      // onMouseMove={handleMouse}
     >
       <HeroPattern className="absolute top-0 left-1/2 -translate-x-1/2 z-[11]" />
       <motion.div
@@ -137,21 +137,21 @@ const Hero = () => {
       </motion.div>
       <motion.div
         ref={mountainBackRightRef}
-        className="absolute right-[50%] z-[10] bottom-[217px]"
+        className="absolute right-[50%] z-[10] bottom-[254px]"
         animate={{ translateX: scrollY / 10 }}
       >
         <MountainBackRight />
       </motion.div>
       <motion.div
         ref={mountainFrontLeftRef}
-        className="absolute left-[50%] z-[10] bottom-[149px]"
+        className="absolute left-[45%] z-[10] bottom-[149px]"
         animate={{ translateX: (1 - scrollY) / 12 }}
       >
         <MountainFrontLeft />
       </motion.div>
       <motion.div
         ref={mountainFrontRightRef}
-        className="absolute right-[50%] z-[10] bottom-[77px]"
+        className="absolute right-[45%] z-[10] bottom-[77px]"
         animate={{ translateX: scrollY / 17 }}
       >
         <MountainFrontRight />
@@ -162,11 +162,11 @@ const Hero = () => {
 
       <HeroGrid className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[9]" />
       <Name className="absolute top-40 left-1/2 -translate-x-1/2 z-[12] lg:scale-[2] lg:top-[400px]" />
-      {/* <h1 className="text-white top-72 px-8 absolute z-10 text-2xl font-bold uppercase text-center w-full">
+      {/* <h1 className="absolute z-10 w-full px-8 text-2xl font-bold text-center text-white uppercase top-72">
         Web Developer
       </h1> */}
 
-      <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-4 absolute left-1/2 -translate-x-1/2 top-[400px]">
+      {/* <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-4 absolute left-1/2 -translate-x-1/2 top-[400px]">
         {miniTriangles &&
           miniTriangles.map((triangle, index) => (
             <MiniTriangle
@@ -174,7 +174,7 @@ const Hero = () => {
               ref={element => (triangleRefs.current[index] = element)}
             />
           ))}
-      </div>
+      </div> */}
     </motion.div>
   )
 }
