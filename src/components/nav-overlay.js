@@ -22,24 +22,24 @@ const NavOverlay = ({ onClick }) => {
   } = useStaticQuery(navItemsQuery)
 
   return ReactDom.createPortal(
-    <div className="fixed top-0 bottom-0 right-0 left-0 bg-[#DE0C8A] z-50 nav-overlay">
+    <div className="fixed top-0 bottom-0 left-0 right-0 z-50 nav-overlay-gradient nav-overlay">
       {/* Close nav btn */}
       <button
-        className="absolute top-8 right-8 block"
+        className="absolute block top-8 right-8"
         type="button"
         onClick={onClick}
       >
-        <XIcon className="text-white w-8 h-8 " />
+        <XIcon className="w-8 h-8 text-white " />
       </button>
 
       {/* Nav with nav items from graphql query */}
       {navLinks && (
-        <nav className="absolute left-0 right-0 top-1/2 -translate-y-1/2 w-full px-8 text-center">
+        <nav className="absolute left-0 right-0 w-full px-8 text-center -translate-y-1/2 top-1/2">
           <ul>
             {navLinks.map(({ key, to, text }) => (
               <li key={key}>
                 <Link
-                  className="text-white hover:text-primary transition-colors duration-300 font-bold text-2xl uppercase mb-4 block"
+                  className="block mb-8 text-4xl font-bold text-white uppercase transition-colors duration-300 hover:text-primary"
                   to={to}
                 >
                   {text}

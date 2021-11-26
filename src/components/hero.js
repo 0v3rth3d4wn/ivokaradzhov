@@ -51,7 +51,7 @@ const Hero = () => {
   const Triangle = React.forwardRef(({ style }, ref) => (
     <svg
       ref={ref}
-      className="absolute top-28 left-1/2 -translate-x-1/2 z-[12] origin-center lg:scale-[2] lg:top-[350px]"
+      className="absolute top-28 left-1/2 -translate-x-1/2 z-[12] origin-center lg:scale-[2] lg:top-[300px]"
       width="274.01208"
       height="246.02499"
       fill="none"
@@ -125,34 +125,34 @@ const Hero = () => {
     <motion.div
       ref={heroRef}
       className="relative h-screen pt-24 overflow-x-hidden hero"
-      // onMouseMove={handleMouse}
+      onMouseMove={handleMouse}
     >
       <HeroPattern className="absolute top-0 left-1/2 -translate-x-1/2 z-[11]" />
       <motion.div
         ref={mountainBackLeftRef}
-        className="absolute left-[50%] z-[10] bottom-[287px]"
-        animate={{ translateX: (1 - scrollY) / 5 }}
+        className="absolute left-[60%] md:left-[50%] z-[10] bottom-[287px]"
+        animate={{ translateX: (1 - scrollY) / 10 }}
       >
         <MountainBackLeft />
       </motion.div>
       <motion.div
         ref={mountainBackRightRef}
-        className="absolute right-[50%] z-[10] bottom-[254px]"
-        animate={{ translateX: scrollY / 10 }}
+        className="absolute right-[60%] md:right-[50%] z-[10] bottom-[254px]"
+        animate={{ translateX: scrollY / 5 }}
       >
         <MountainBackRight />
       </motion.div>
       <motion.div
         ref={mountainFrontLeftRef}
-        className="absolute left-[45%] z-[10] bottom-[149px]"
-        animate={{ translateX: (1 - scrollY) / 12 }}
+        className="absolute left-[65%] md:left-[45%] z-[10] bottom-[149px]"
+        animate={{ translateX: (1 - scrollY) / 2 }}
       >
         <MountainFrontLeft />
       </motion.div>
       <motion.div
         ref={mountainFrontRightRef}
-        className="absolute right-[45%] z-[10] bottom-[77px]"
-        animate={{ translateX: scrollY / 17 }}
+        className="absolute right-[65%] md:right-[45%] z-[10] bottom-[77px]"
+        animate={{ translateX: scrollY / 1.5 }}
       >
         <MountainFrontRight />
       </motion.div>
@@ -161,12 +161,12 @@ const Hero = () => {
       </motion.div>
 
       <HeroGrid className="absolute bottom-0 left-1/2 -translate-x-1/2 z-[9]" />
-      <Name className="absolute top-40 left-1/2 -translate-x-1/2 z-[12] lg:scale-[2] lg:top-[400px]" />
+      <Name className="absolute top-40 left-1/2 -translate-x-1/2 z-[12] lg:scale-[2] lg:top-[350px]" />
       {/* <h1 className="absolute z-10 w-full px-8 text-2xl font-bold text-center text-white uppercase top-72">
         Web Developer
       </h1> */}
 
-      {/* <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-4 absolute left-1/2 -translate-x-1/2 top-[400px]">
+      <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-4 absolute left-1/2 -translate-x-1/2 top-[400px]">
         {miniTriangles &&
           miniTriangles.map((triangle, index) => (
             <MiniTriangle
@@ -174,7 +174,7 @@ const Hero = () => {
               ref={element => (triangleRefs.current[index] = element)}
             />
           ))}
-      </div> */}
+      </div>
     </motion.div>
   )
 }

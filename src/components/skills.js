@@ -49,17 +49,17 @@ const Skills = () => {
   } = useStaticQuery(skillsQuery)
 
   return (
-    <div className="py-22 px-8 skills relative">
+    <div className="relative px-8 py-22 skills">
       <SkillsPattern className="absolute top-0 left-1/2 -translate-x-1/2 z-[9] opacity-70 w-full h-auto" />
-      <div className="text-secondary font-extrabold uppercase text-xs relative z-10 mb-1">
+      <div className="relative z-10 mb-1 text-xs font-extrabold uppercase text-secondary">
         {subtitle}
       </div>
-      <h2 className="text-white text-4xl font-bold relative z-10 pb-10">
+      <h2 className="relative z-10 pb-10 text-4xl font-bold text-white">
         {title}
       </h2>
 
       {skills && (
-        <div className="grid gap-4 grid-cols-3 z-10 relative skill-list">
+        <div className="relative z-10 grid grid-cols-3 gap-4 md:grid-cols-6 skill-list">
           {skills.map(({ icon, name }, index) => (
             <div key={index}>
               <div
@@ -68,7 +68,9 @@ const Skills = () => {
               >
                 {icons[icon] &&
                   React.createElement(icons[icon], {
-                    className: 'text-white w-14 h-14',
+                    title: name,
+                    className:
+                      'text-white w-14 h-14 xl:w-28 xl:h-28 xl:opacity-60 xl:hover:opacity-100 xl:transition-opacity xl:duration-200 xl:cursor-pointer',
                   })}
               </div>
             </div>
