@@ -3,12 +3,18 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+  html {
+    --body-overflow: auto;
+  }
+  
   body {
     @apply font-sans;
     --primary: #5B0E7F;
     --secondary: #F707CF;
     --tertiary: #65FFF5; /** change also in tailwind config **/
+    overflow: var(--body-overflow);
   }
 }
 
