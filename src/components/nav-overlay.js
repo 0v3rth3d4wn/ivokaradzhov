@@ -39,7 +39,7 @@ const NavOverlay = ({ onClick }) => {
             {navLinks.map(({ key, to, text }) => (
               <li key={key}>
                 <Link
-                  className="block mb-8 text-4xl font-bold text-white uppercase transition-colors duration-300 hover:text-primary"
+                  className="block mb-10 text-4xl font-bold text-white uppercase transition-colors duration-300 hover:text-primary"
                   to={to}
                 >
                   {text}

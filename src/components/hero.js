@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react'
 import useMouse from '@react-hook/mouse-position'
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 import useScrollPosition from '@react-hook/window-scroll'
-import { useWindowWidth } from '@react-hook/window-size'
+import { useWindowWidth, useWindowHeight } from '@react-hook/window-size'
 
 import HeroPattern from '../assets/images/hero-pattern.svg'
 import HeroGrid from '../assets/images/hero-grid-large.svg'
@@ -15,6 +15,21 @@ import MountainFrontRight from '../assets/images/hero/mountain-front-right.svg'
 
 import '../styles/hero.css'
 
+function setViewportProperty(doc) {
+  let prevClientHeight
+  const customVar = `--${'vh'}`
+  function handleResize() {
+    const { clientHeight } = doc
+    if (clientHeight === prevClientHeight) return
+    requestAnimationFrame(function updateViewportHeight() {
+      doc.style.setProperty(customVar, `${clientHeight * 0.01}px`)
+      prevClientHeight = clientHeight
+    })
+  }
+  handleResize()
+  return handleResize
+}
+
 const Hero = () => {
   const heroRef = useRef()
   const triangleRef = useRef()
@@ -22,16 +37,26 @@ const Hero = () => {
   const miniTriangles = [...Array(288).keys()]
   const scrollY = useScrollPosition(60)
   const windowWidth = useWindowWidth()
+
+  /**
+   * Mountains refs
+   */
   const mountainBackLeftRef = useRef()
   const mountainBackRightRef = useRef()
   const mountainFrontLeftRef = useRef()
   const mountainFrontRightRef = useRef()
 
+  /**
+   * Get the center of an element
+   * @param {*} element
+   * @returns
+   */
   function getCenter(element) {
     const { left, top, width, height } = element.getBoundingClientRect()
     return { x: left + width / 2, y: top + height / 2 }
   }
 
+  // After each window width change, reposition the mountains
   useEffect(() => {
     const mountainBackLeftWidth =
       mountainBackLeftRef.current.getBoundingClientRect().width
@@ -48,6 +73,9 @@ const Hero = () => {
     mountainFrontRightRef.current.style.marginRight = `-${mountainFrontRightWidth}px`
   }, [windowWidth])
 
+  /**
+   * Main triangle SVG. Forward ref so we can interact later with it
+   */
   const Triangle = React.forwardRef(({ style }, ref) => (
     <svg
       ref={ref}
@@ -87,6 +115,9 @@ const Hero = () => {
 
   Triangle.displayName = 'Triangle'
 
+  /**
+   * Mini triangle component.
+   */
   const MiniTriangle = React.forwardRef((props, ref) => (
     <svg
       width="11"
@@ -106,7 +137,10 @@ const Hero = () => {
 
   MiniTriangle.displayName = 'Mini'
 
+  // angle for
   const angle = useMotionValue(0)
+
+  // onMouseMove rotate the small triangles
   function handleMouse(event) {
     miniTriangles.forEach((element, index) => {
       angle.set(
@@ -121,11 +155,19 @@ const Hero = () => {
     })
   }
 
+  // Get window height
+  const windowHeight = useWindowHeight()
+
+  // Whenever window height changes, set the --vh css var to the window height
+  useEffect(() => {
+    setViewportProperty(document.documentElement)
+  }, [windowHeight])
+
   return (
     <motion.div
       ref={heroRef}
       className="relative h-screen pt-24 overflow-x-hidden hero"
-      onMouseMove={handleMouse}
+      // onMouseMove={handleMouse}
     >
       <HeroPattern className="absolute top-0 left-1/2 -translate-x-1/2 z-[11]" />
       <motion.div
@@ -166,7 +208,7 @@ const Hero = () => {
         Web Developer
       </h1> */}
 
-      <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-4 absolute left-1/2 -translate-x-1/2 top-[400px]">
+      {/* <div className="grid grid-cols-[repeat(24,minmax(0,1fr))] gap-4 absolute left-1/2 -translate-x-1/2 top-[400px]">
         {miniTriangles &&
           miniTriangles.map((triangle, index) => (
             <MiniTriangle
@@ -174,7 +216,7 @@ const Hero = () => {
               ref={element => (triangleRefs.current[index] = element)}
             />
           ))}
-      </div>
+      </div> */}
     </motion.div>
   )
 }

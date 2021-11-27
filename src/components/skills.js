@@ -13,8 +13,7 @@ import { SiSass } from '@react-icons/all-files/si/SiSass'
 import { SiTailwindcss } from '@react-icons/all-files/si/SiTailwindcss'
 import { SiBootstrap } from '@react-icons/all-files/si/SiBootstrap'
 
-import SkillsPattern from '../assets/images/skills-pattern.svg'
-import '../styles/skills.css'
+import Heading from './heading'
 
 const skillsQuery = graphql`
   query MyQuery {
@@ -49,17 +48,15 @@ const Skills = () => {
   } = useStaticQuery(skillsQuery)
 
   return (
-    <div className="relative px-8 py-22 skills">
-      <SkillsPattern className="absolute top-0 left-1/2 -translate-x-1/2 z-[9] opacity-70 w-full h-auto" />
-      <div className="relative z-10 mb-1 text-xs font-extrabold uppercase text-secondary">
-        {subtitle}
-      </div>
-      <h2 className="relative z-10 pb-10 text-4xl font-bold text-white">
-        {title}
-      </h2>
+    <div className="relative pb-22 bg-gradient">
+      <Heading
+        headingClassName="pt-22 px-8 relative"
+        title={title}
+        subtitle={subtitle}
+      />
 
       {skills && (
-        <div className="relative z-10 grid grid-cols-3 gap-4 md:grid-cols-6 skill-list">
+        <div className="relative z-10 grid grid-cols-3 gap-4 px-8 md:grid-cols-6 skill-list">
           {skills.map(({ icon, name }, index) => (
             <div key={index}>
               <div
