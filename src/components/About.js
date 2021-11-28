@@ -1,14 +1,16 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
+import { motion } from 'framer-motion'
 
 import SkillsPattern from '../assets/images/lines.svg'
 import '../styles/about.css'
-import Heading from './heading'
+import Heading from './Headings'
 
 const aboutJSON = graphql`
   query AboutQuery {
     aboutJson {
+      anchor
       title
       subtitle
       name
@@ -19,11 +21,11 @@ const aboutJSON = graphql`
 
 const About = () => {
   const {
-    aboutJson: { title, subtitle, name, description },
+    aboutJson: { anchor: id, title, subtitle, name, description },
   } = useStaticQuery(aboutJSON)
 
   return (
-    <div className="relative pb-22 bg-gradient">
+    <div className="relative pb-22 bg-gradient" id={id}>
       <Heading
         headingClassName="pt-22 px-8 relative"
         title={title}

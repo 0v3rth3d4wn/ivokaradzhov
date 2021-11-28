@@ -1,9 +1,10 @@
 import React from 'react'
 import { StaticImage } from 'gatsby-plugin-image'
-import Hero from '../components/hero'
-import Skills from '../components/skills'
-import About from '../components/about'
-import Contact from '../components/contact'
+import Hero from '../components/Hero'
+import Skills from '../components/Skills'
+import About from '../components/About'
+import Contact from '../components/Contact'
+import GoToTop from '../components/GoToTop'
 
 const Index = () => (
   <>
@@ -18,6 +19,7 @@ const Index = () => (
     />
     <About />
     <Contact />
+    <GoToTop />
   </>
 )
 

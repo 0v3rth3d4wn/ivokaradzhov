@@ -3,11 +3,12 @@ import { graphql, useStaticQuery } from 'gatsby'
 import Obfuscate from 'react-obfuscate'
 import { FaRegEnvelope } from '@react-icons/all-files/fa/FaRegEnvelope'
 
-import Heading from './heading'
+import Heading from './Headings'
 
 const contactJSON = graphql`
   query ContactQuery {
     contactJson {
+      anchor
       title
       subtitle
       email
@@ -17,11 +18,11 @@ const contactJSON = graphql`
 
 const Contact = () => {
   const {
-    contactJson: { title, subtitle, email },
+    contactJson: { anchor: id, title, subtitle, email },
   } = useStaticQuery(contactJSON)
 
   return (
-    <div className="relative pb-22 bg-gradient">
+    <div className="relative pb-22 bg-gradient" id={id}>
       <Heading
         headingClassName="pt-22 px-8 relative"
         title={title}

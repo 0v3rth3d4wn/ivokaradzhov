@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
 import useScrollPosition from '@react-hook/window-scroll'
-import Nav from './nav'
-import Logo from '../assets/images/logo.svg'
+import { AnchorLink } from 'gatsby-plugin-anchor-links'
+import Nav from './Nav'
+import Logo from './Logo'
 
 const Header = () => {
   const headerHeight = 56
@@ -32,7 +33,9 @@ const Header = () => {
           isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
       >
-        <Logo />
+        <AnchorLink to="/#main">
+          <Logo />
+        </AnchorLink>
         <Nav />
       </header>
     </>

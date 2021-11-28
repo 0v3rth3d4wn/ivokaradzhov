@@ -13,11 +13,12 @@ import { SiSass } from '@react-icons/all-files/si/SiSass'
 import { SiTailwindcss } from '@react-icons/all-files/si/SiTailwindcss'
 import { SiBootstrap } from '@react-icons/all-files/si/SiBootstrap'
 
-import Heading from './heading'
+import Heading from './Headings'
 
 const skillsQuery = graphql`
   query MyQuery {
     skillsJson {
+      anchor
       title
       subtitle
       skills {
@@ -44,11 +45,11 @@ const icons = {
 
 const Skills = () => {
   const {
-    skillsJson: { title, subtitle, skills },
+    skillsJson: { anchor: id, title, subtitle, skills },
   } = useStaticQuery(skillsQuery)
 
   return (
-    <div className="relative pb-22 bg-gradient">
+    <div className="relative pb-22 bg-gradient" id={id}>
       <Heading
         headingClassName="pt-22 px-8 relative"
         title={title}

@@ -11,8 +11,9 @@
   
   body {
     @apply font-sans;
-    --primary: #5B0E7F;
-    --secondary: #F707CF;
+    /** Add raw hex values in tailwind config instead of vars in order to generate / set --tw-bg-opacity **/
+    --primary: #5B0E7F; /** change also in tailwind config **/
+    --secondary: #F707CF; /** change also in tailwind config **/
     --tertiary: #65FFF5; /** change also in tailwind config **/
     overflow: var(--body-overflow);
   }
