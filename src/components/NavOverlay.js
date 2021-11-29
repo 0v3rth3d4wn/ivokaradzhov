@@ -1,8 +1,8 @@
 import ReactDom from 'react-dom'
 import React from 'react'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
-import { graphql, Link, useStaticQuery } from 'gatsby'
-import { XIcon } from '@heroicons/react/outline'
+import { graphql, useStaticQuery } from 'gatsby'
+import { FiX } from '@react-icons/all-files/fi/FiX'
 
 // Get nav links from data/nav.json
 const navItemsQuery = graphql`
@@ -30,7 +30,7 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
         type="button"
         onClick={hideOverlay}
       >
-        <XIcon className="w-8 h-8 text-white " />
+        <FiX className="w-8 h-8 text-white " />
       </button>
 
       {/* Nav with nav items from graphql query */}

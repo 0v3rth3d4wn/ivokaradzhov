@@ -6,6 +6,11 @@
 
 module.exports = {
   /* Your site config here */
+  siteMetadata: {
+    title: `Ivo Karadzhov`,
+    siteUrl: `https://ivokaradzhov.com`,
+    description: `Hi, I'm Ivo Karadzhov. I'm a full stack web developer from Bulgaria. I use WordPress, React and many more cool technologies to create beautiful website experiences.`,
+  },
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
@@ -28,5 +33,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-anchor-links`,
+    `gatsby-plugin-react-helmet`,
   ],
 }

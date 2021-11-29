@@ -28,7 +28,9 @@ const Header = () => {
     <>
       <header
         className={`px-8 py-8 fixed top-0 left-0 right-0 w-full flex flex-wrap items-center justify-between z-40 ${
-          scrollY < headerHeight ? 'bg-transparent' : 'bg-[#361359] shadow py-4'
+          scrollY < headerHeight
+            ? 'bg-transparent'
+            : 'bg-quaternary shadow py-4'
         } duration-300 transition-all delay-[100ms] ${
           isHeaderVisible ? 'translate-y-0' : '-translate-y-full'
         }`}
