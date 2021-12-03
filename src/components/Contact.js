@@ -1,7 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import Obfuscate from 'react-obfuscate'
-import { FaRegEnvelope } from '@react-icons/all-files/fa/FaRegEnvelope'
 import Envelope from '../assets/images/icons/envelope.svg'
 
 import Heading from './Headings'

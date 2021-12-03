@@ -2,7 +2,8 @@ import ReactDom from 'react-dom'
 import React from 'react'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import { graphql, useStaticQuery } from 'gatsby'
-import { FiX } from '@react-icons/all-files/fi/FiX'
+import { motion } from 'framer-motion'
+import Close from '../assets/images/icons/close.svg'
 
 // Get nav links from data/nav.json
 const navItemsQuery = graphql`
@@ -23,14 +24,21 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
   } = useStaticQuery(navItemsQuery)
 
   return ReactDom.createPortal(
-    <div className="fixed top-0 bottom-0 left-0 right-0 z-50 nav-overlay-gradient nav-overlay">
+    <motion.div
+      key="nav"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="fixed top-0 bottom-0 left-0 right-0 z-50 nav-overlay-gradient nav-overlay"
+    >
       {/* Close nav btn */}
       <button
         className="absolute block top-8 right-8"
         type="button"
         onClick={hideOverlay}
       >
-        <FiX className="w-8 h-8 text-white " />
+        <Close className="w-8 h-8 text-white " />
       </button>
 
       {/* Nav with nav items from graphql query */}
@@ -51,7 +59,7 @@ const NavOverlay = ({ onClick: hideOverlay }) => {
           </ul>
         </nav>
       )}
-    </div>,
+    </motion.div>,
     document.getElementById('portal')
   )
 }

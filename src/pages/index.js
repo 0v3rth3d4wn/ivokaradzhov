@@ -7,6 +7,7 @@ import About from '../components/About'
 import Contact from '../components/Contact'
 import GoToTop from '../components/GoToTop'
 import SEO from '../components/SEO'
+import RetroPC from '../components/RetroPC'
 
 const seoQuery = graphql`
   {
@@ -26,13 +27,7 @@ const Index = () => {
       <SEO title={pageTitle} />
       <Hero />
       <Skills />
-      <StaticImage
-        alt="PC"
-        className="block w-full h-auto"
-        layout="fullWidth"
-        src="../assets/images/computer.png"
-        quality="100"
-      />
+      <RetroPC />
       <About />
       <Contact />
       <GoToTop />

@@ -2,8 +2,8 @@ import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
+import Circle from '../assets/images/circle.svg'
 
-import SkillsPattern from '../assets/images/lines.svg'
 import '../styles/about.css'
 import Heading from './Headings'
 
@@ -31,7 +31,7 @@ const About = () => {
         title={title}
         subtitle={subtitle}
       />
-      <div className="px-8 md:grid md:grid-cols-[1fr,3fr] lg:grid-cols-[1fr,2fr] md:gap-8">
+      <div className="overflow-hidden px-8 pt-8 -top-8 relative md:grid md:grid-cols-[1fr,3fr] lg:grid-cols-[1fr,2fr] md:gap-8">
         <div className="relative flex flex-col items-center justify-center mb-10 border-2 border-transparent border-solid p-9 square rounded-xl border-gradient">
           <StaticImage
             src="../assets/images/karadzhov.png"
@@ -44,6 +44,9 @@ const About = () => {
           <div className="text-2xl font-bold text-center text-white uppercase">
             {name}
           </div>
+          <div className="absolute w-full h-full left-0 top-0 box-parent pointer-events-none">
+            <Circle className="w-6 h-6 absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2" />
+          </div>
         </div>
         <p className="text-lg lg:text-xl text-white">
           <strong>Lorem ipsum dolor</strong>, sit amet consectetur adipisicing
@@ -51,7 +54,7 @@ const About = () => {
           atque impedit aperiam amet perferendis saepe nisi aspernatur? Ab, a
           atque. Adipisci, vero delectus. Lorem ipsum dolor sit amet consectetur
           adipisicing elit. Corporis fugiat{' '}
-          <a href="https://ralev.com" target="_blank" rel="noopener noreferrer">
+          <a href="##" target="_blank" rel="noopener noreferrer">
             repellendus
           </a>{' '}
           impedit dolorem? Inventore magni optio ab recusandae corrupti neque

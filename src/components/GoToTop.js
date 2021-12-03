@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
 import useScrollPosition from '@react-hook/window-scroll'
 import { FiArrowUp } from '@react-icons/all-files/fi/FiArrowUp'

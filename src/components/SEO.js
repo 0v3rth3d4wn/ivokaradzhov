@@ -62,6 +62,23 @@ const SEO = ({ children, location, title, description, image }) => {
         key="ogsitename"
       />
       <meta property="og:description" content={description} key="ogdesc" />
+
+      {/* Schema.org */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          '@context': 'https://schema.org/',
+          '@type': 'Person',
+          name: 'Ivo Karadzhov',
+          url: 'https://ivokaradzhov.com',
+          image: '',
+          sameAs: [
+            'https://twitter.com/rijia',
+            'https://www.linkedin.com/in/ivo-karadzhov-88582424/',
+            'https://github.com/0v3rth3d4wn',
+            'https://ivokaradzhov.com',
+          ],
+        })}
+      </script>
       {children}
     </Helmet>
   )

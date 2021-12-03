@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { AnimatePresence } from 'framer-motion'
 import Hamburger from '../assets/images/icons/hamburger.svg'
 import NavOverlay from './NavOverlay'
 import NavContext from '../store/nav-context'
@@ -9,12 +9,14 @@ const Nav = () => {
 
   return (
     <>
-      {/* Toggle nav button */}
+      {/* Open nav button */}
       <button type="button" className="block" onClick={() => setNavOpen()}>
         <Hamburger className="text-white w-8 h-8" />
       </button>
       {/* Nav overlay with nav items if isNavOpen is true */}
-      {isNavOpen && <NavOverlay onClick={() => setNavClosed()} />}
+      <AnimatePresence>
+        {isNavOpen && <NavOverlay onClick={() => setNavClosed()} />}
+      </AnimatePresence>
     </>
   )
 }
