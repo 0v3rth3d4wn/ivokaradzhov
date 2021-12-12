@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
 import { motion } from 'framer-motion'
+import gsap from 'gsap'
 import Circle from '../assets/images/circle.svg'
 
 import '../styles/about.css'
@@ -24,6 +25,30 @@ const About = () => {
     aboutJson: { anchor: id, title, subtitle, name, description },
   } = useStaticQuery(aboutJSON)
 
+  const gradientBoxRef = useRef()
+  const b1 =
+    'linear-gradient(190deg, rgba(78, 16, 114, 0.74) 10.41%, #261548 89.87%) padding-box, linear-gradient(225deg, #F675FF 1.68%, rgba(170, 189, 249, 0) 58.85%, #64FFF4 100%) border-box'
+
+  const b2 =
+    'linear-gradient(190deg, rgba(78, 16, 114, 0.74) 10.41%, #261548 89.87%) padding-box, linear-gradient(585deg, #F675FF 1.68%, rgba(170, 189, 249, 0) 58.85%, #64FFF4 100%) border-box'
+
+  // Start animating the img box gradient on mount
+  useEffect(() => {
+    gsap.fromTo(
+      gradientBoxRef.current,
+      {
+        ease: 'none',
+        background: b1,
+      },
+      {
+        ease: 'none',
+        duration: 19,
+        background: b2,
+        repeat: -1,
+      }
+    )
+  }, [])
+
   return (
     <div className="relative pb-22 bg-gradient" id={id}>
       <Heading
@@ -31,21 +56,25 @@ const About = () => {
         title={title}
         subtitle={subtitle}
       />
-      <div className="overflow-hidden px-8 pt-8 -top-8 relative md:grid md:grid-cols-[1fr,3fr] lg:grid-cols-[1fr,2fr] md:gap-8">
-        <div className="relative flex flex-col items-center justify-center mb-10 border-2 border-transparent border-solid p-9 square rounded-xl border-gradient">
+      <div className="sm:grid overflow-hidden relative -top-8 sm:grid-cols-[2fr,3fr] lg:grid-cols-[1fr,2fr] sm:gap-8 px-8 pt-8 mx-auto max-w-7xl">
+        <div
+          ref={gradientBoxRef}
+          className="flex relative flex-col justify-center items-center p-9 mb-10 rounded-xl border-2 border-transparent border-solid square border-gradient"
+        >
           <StaticImage
             src="../assets/images/karadzhov.png"
             width={144}
             height={144}
             alt={name}
+            imgClassName="rounded-full avatar-gradient"
             className="mb-6 rounded-full avatar-gradient"
             quality="90"
           />
           <div className="text-2xl font-bold text-center text-white uppercase">
             {name}
           </div>
-          <div className="absolute w-full h-full left-0 top-0 box-parent pointer-events-none">
-            <Circle className="w-6 h-6 absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none box-parent">
+            <Circle className="absolute top-0 left-0 w-6 h-6 -translate-x-1/2 -translate-y-1/2" />
           </div>
         </div>
         <p className="text-lg lg:text-xl text-white">

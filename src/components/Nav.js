@@ -11,7 +11,7 @@ const Nav = () => {
     <>
       {/* Open nav button */}
       <button type="button" className="block" onClick={() => setNavOpen()}>
-        <Hamburger className="text-white w-8 h-8" />
+        <Hamburger className="w-8 h-8 text-white" />
       </button>
       {/* Nav overlay with nav items if isNavOpen is true */}
       <AnimatePresence>

@@ -50,19 +50,15 @@ const Skills = () => {
 
   return (
     <div className="relative pb-22 bg-gradient" id={id}>
-      <Heading
-        headingClassName="pt-22 px-8 relative"
-        title={title}
-        subtitle={subtitle}
-      />
+      <Heading title={title} subtitle={subtitle} />
 
       {skills && (
-        <div className="relative z-10 grid grid-cols-3 gap-4 px-8 md:grid-cols-6 skill-list">
+        <div className="grid relative z-10 grid-cols-3 md:grid-cols-6 gap-4 px-8 mx-auto max-w-7xl skill-list">
           {skills.map(({ icon, name }, index) => (
             <div key={index}>
               <div
                 title={name}
-                className="rounded-2xl bg-[#7477D4] bg-opacity-10 flex-1 square flex flex-wrap items-center justify-center self-center"
+                className="flex flex-wrap flex-1 justify-center items-center self-center bg-[#7477D4] bg-opacity-10 rounded-2xl square"
               >
                 {icons[icon] &&
                   React.createElement(icons[icon], {

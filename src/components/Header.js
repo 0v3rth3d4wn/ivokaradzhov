@@ -6,7 +6,7 @@ import Logo from './Logo'
 
 const Header = () => {
   const headerHeight = 56
-  const scrollY = useScrollPosition(60)
+  const scrollY = useScrollPosition()
   let isHeaderVisible = true
 
   // Use useRef to store the previous value of scrollY

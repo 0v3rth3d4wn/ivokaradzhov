@@ -4,6 +4,11 @@
     "title": "About",
     "subtitle": "This is who I am",
     "name": "Ivo Karadzhov",
-    "description": "Sunt esse incididunt aliquip eiusmod commodo consectetur non do esse nisi eiusmod commodo adipisicing amet. Nulla laboris fugiat labore culpa quis elit est minim veniam deserunt in fugiat laboris nisi. Ut excepteur Lorem deserunt est exercitation. Ex velit aliquip laboris consectetur enim sint pariatur in occaecat eu elit veniam. Ea magna laboris voluptate excepteur proident non laboris tempor reprehenderit eu in deserunt ea est."
+    "description": "Sunt esse incididunt aliquip eiusmod commodo consectetur non do esse nisi eiusmod commodo adipisicing amet. Nulla laboris fugiat labore culpa quis elit est minim veniam deserunt in fugiat laboris nisi. Ut excepteur Lorem deserunt est exercitation. Ex velit aliquip laboris consectetur enim sint pariatur in occaecat eu elit veniam. Ea magna laboris voluptate excepteur proident non laboris tempor reprehenderit eu in deserunt ea est.",
+    "tagline": [
+      "Build.",
+      "Enjoy.",
+      "Progress."
+    ]
   }
 ]

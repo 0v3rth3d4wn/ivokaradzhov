@@ -27,11 +27,11 @@ const Social = () => {
 
   return (
     socialIcons && (
-      <div className="px-8 py-22">
-        <div className="text-white uppercase text-xs font-bold mb-2">
+      <div className="py-22 ">
+        <div className="mb-2 text-xs font-bold text-white uppercase">
           Or find me at
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex gap-4 items-center">
           {socialIcons.map(({ name, key, url }, index) => (
             <a href={url} key={index}>
               {icons[key] &&
