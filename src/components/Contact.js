@@ -25,11 +25,7 @@ const Contact = () => {
 
   return (
     <div className="relative pb-11 bg-gradient" id={id}>
-      <Heading
-        headingClassName="pt-22 px-8 relative"
-        title={title}
-        subtitle={subtitle}
-      />
+      <Heading title={title} subtitle={subtitle} />
 
       <div className="px-8 mx-auto max-w-7xl">
         <Obfuscate

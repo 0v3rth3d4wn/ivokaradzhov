@@ -109,7 +109,7 @@ const Hero = () => {
       className="overflow-x-hidden relative pt-24 h-screen hero"
       onMouseMove={handleMouse}
     >
-      <HeroPattern className="absolute top-0 left-1/2 z-[11] -translate-x-1/2" />
+      <HeroPattern className="absolute top-0 left-1/2 z-[11] w-full -translate-x-1/2" />
       <motion.div
         ref={mountainBackLeftRef}
         className="absolute bottom-[287px] left-[60%] md:left-[50%] z-[10]"

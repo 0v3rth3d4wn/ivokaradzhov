@@ -49,7 +49,7 @@ const Skills = () => {
   } = useStaticQuery(skillsQuery)
 
   return (
-    <div className="relative pb-22 bg-gradient" id={id}>
+    <div className="relative pb-22 xl:pb-48 bg-gradient" id={id}>
       <Heading title={title} subtitle={subtitle} />
 
       {skills && (
@@ -64,7 +64,7 @@ const Skills = () => {
                   React.createElement(icons[icon], {
                     title: name,
                     className:
-                      'text-white w-14 h-14 xl:w-28 xl:h-28 xl:opacity-60 xl:hover:opacity-100 xl:transition-opacity xl:duration-200 xl:cursor-pointer',
+                      'text-white w-14 h-14 xl:w-20 xl:h-20 xl:opacity-60 xl:hover:opacity-100 xl:transition-opacity xl:duration-200 xl:cursor-pointer',
                   })}
               </div>
             </div>

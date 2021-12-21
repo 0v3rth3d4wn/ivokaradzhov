@@ -28,7 +28,7 @@ const RetroPC = () => {
       />
       <StaticImage
         alt="PC"
-        className="hidden sm:block w-full h-auto"
+        className="hidden sm:block w-full h-auto lg:h-[550px] xl:h-[700px]"
         layout="fullWidth"
         src="../assets/images/computer.jpg"
         quality="75"

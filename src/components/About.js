@@ -50,12 +50,8 @@ const About = () => {
   }, [])
 
   return (
-    <div className="relative pb-22 bg-gradient" id={id}>
-      <Heading
-        headingClassName="pt-22 px-8 relative"
-        title={title}
-        subtitle={subtitle}
-      />
+    <div className="relative pb-22 xl:pb-48 bg-gradient" id={id}>
+      <Heading title={title} subtitle={subtitle} />
       <div className="sm:grid overflow-hidden relative -top-8 sm:grid-cols-[2fr,3fr] lg:grid-cols-[1fr,2fr] sm:gap-8 px-8 pt-8 mx-auto max-w-7xl">
         <div
           ref={gradientBoxRef}
