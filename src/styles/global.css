@@ -24,18 +24,26 @@
   aspect-ratio: 1 / 1;
 }
 
-p strong,
+p {
+  @apply text-lg lg:text-xl text-white;
+}
+
+p strong {
+  /* background-image: linear-gradient(213.61deg, var(--tertiary) 0%, var(--secondary) 100%); */
+  @apply font-extrabold text-secondary;
+}
+
 p a {
   @apply font-bold text-secondary;
 }
 
 p a {
-  @apply transition-colors duration-200 border-b-2 border-transparent border-solid;
+  @apply transition-colors duration-200 border-b-2 border-secondary border-solid;
 }
 
 p a:hover,
 p a:focus {
-  @apply border-secondary;
+  @apply border-transparent;
 }
 
 .button-border::after {

@@ -5,6 +5,7 @@ export const BigTriangle = React.memo(({ className }) => (
     className={className}
     width="274.01208"
     height="246.02499"
+    viewBox="0 0 274 246"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >

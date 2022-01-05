@@ -14,6 +14,7 @@ import { MountainBackRight } from './hero/MountainBackRight'
 import { MountainBackLeft } from './hero/MountainBackLeft'
 
 import '../styles/hero.css'
+import { HeroPos } from './hero/HeroPos'
 
 function setViewportProperty(doc) {
   let prevClientHeight
@@ -112,39 +113,40 @@ const Hero = () => {
       <HeroPattern className="absolute top-0 left-1/2 z-[11] w-full -translate-x-1/2" />
       <motion.div
         ref={mountainBackLeftRef}
-        className="absolute bottom-[287px] left-[60%] md:left-[50%] z-[10]"
+        className="sm:hidden md:block absolute bottom-[287px] left-[60%] md:left-[50%] z-[10]"
         animate={{ translateX: (1 - scrollY) / 10 }}
       >
         <MountainBackLeft />
       </motion.div>
       <motion.div
         ref={mountainBackRightRef}
-        className="absolute right-[60%] md:right-[50%] bottom-[254px] z-[10]"
+        className="sm:hidden md:block absolute right-[60%] md:right-[50%] bottom-[254px] z-[10]"
         animate={{ translateX: scrollY / 5 }}
       >
         <MountainBackRight />
       </motion.div>
       <motion.div
         ref={mountainFrontLeftRef}
-        className="absolute bottom-[149px] left-[65%] md:left-[45%] z-[10]"
+        className="sm:hidden md:block absolute bottom-[149px] left-[65%] md:left-[45%] z-[10]"
         animate={{ translateX: (1 - scrollY) / 2 }}
       >
         <MountainFrontLeft />
       </motion.div>
       <motion.div
         ref={mountainFrontRightRef}
-        className="absolute right-[65%] md:right-[45%] bottom-[77px] z-[10]"
+        className="sm:hidden md:block absolute right-[65%] md:right-[45%] bottom-[77px] z-[10]"
         animate={{ translateX: scrollY / 1.5 }}
       >
         <MountainFrontRight />
       </motion.div>
-      <BigTriangle className="absolute top-24 md:top-[300px] left-1/2 z-[12] origin-center md:scale-[2] -translate-x-1/2" />
+      <BigTriangle className="absolute top-24 left-1/2 z-[12] md:w-[330px] md:h-auto origin-center -translate-x-1/2" />
 
-      <HeroGrid className="absolute bottom-0 left-1/2 z-[9] -translate-x-1/2" />
-      <HeroName className="absolute top-40 md:top-[350px] left-1/2 z-[12] md:scale-[2] -translate-x-1/2" />
-      {/* <h1 className="absolute z-10 w-full px-8 text-2xl font-bold text-center text-white uppercase top-72">
-        Web Developer
-      </h1> */}
+      <HeroGrid className="absolute bottom-0 left-1/2 z-[9] sm:opacity-70 md:opacity-100 -translate-x-1/2" />
+      <HeroName className="absolute top-26 left-1/2 z-[12] w-[320px] h-auto -translate-x-1/2" />
+      <HeroPos className="absolute top-60 left-1/2 z-[12] w-[300px] h-auto -translate-x-1/2" />
+      <h1 className="absolute left-1/2 text-primary text-opacity-0 selection:bg-transparent -translate-x-1/2">
+        Ivo Karadzhov, Full-stack Web Developer
+      </h1>
 
       <div className="hidden xl:grid absolute top-[300px] left-1/2 grid-cols-[repeat(24,minmax(0,1fr))] gap-4 -translate-x-1/2">
         {miniTriangles &&

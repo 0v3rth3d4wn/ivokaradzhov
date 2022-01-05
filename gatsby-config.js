@@ -32,6 +32,8 @@ module.exports = {
         ignore: [`**/\.*`], // ignore files starting with a dot
       },
     },
+    `gatsby-transformer-remark`,
+    `gatsby-plugin-mdx`,
     `gatsby-plugin-anchor-links`,
     `gatsby-plugin-react-helmet`,
   ],
