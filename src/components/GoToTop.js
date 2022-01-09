@@ -11,7 +11,7 @@ const GoToTop = () => {
       to="/#main"
       className={`${
         scrollY > 200 ? 'opacity-1' : 'opacity-0'
-      } fixed right-8 bottom-8 bg-primary z-[12] rounded-lg p-1 bg-opacity-80 transition-opacity duration-500 hover:bg-opacity-100`}
+      } fixed right-8 bottom-8 bg-primary z-[12] rounded-lg p-2 bg-opacity-80 transition-all duration-500 hover:bg-opacity-100`}
     >
       <FiArrowUp className="w-6 h-6 text-secondary" />
     </AnchorLink>

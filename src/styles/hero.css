@@ -1,3 +1,27 @@
 .hero {
   background-image: linear-gradient(195.58deg, var(--primary) -10.95%, #251447 48.22%);
 }
+
+@media (min-width: theme('screens.xl')) and (max-height: 800px) {
+  .hero-big-triangle {
+    @apply w-[320px];
+  }
+
+  .hero-name {
+    @apply w-[370px];
+  }
+
+  .hero-pos {
+    @apply w-[300px] top-64;
+  }
+  
+  .hero-mini-triangles {
+    @apply grid-cols-[repeat(24,minmax(0,1fr))]
+  }
+}
+
+@media (min-width: theme('screens.xl')) and (max-height: 600px) {
+  [class*="hero-mountain"] {
+    @apply hidden;
+  }
+}

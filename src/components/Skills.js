@@ -1,8 +1,8 @@
 import { graphql, useStaticQuery } from 'gatsby'
 import React from 'react'
 import { SiWordpress } from '@react-icons/all-files/si/SiWordpress'
-import { SiWoo } from '@react-icons/all-files/si/SiWoo'
 import { SiNginx } from '@react-icons/all-files/si/SiNginx'
+import { SiPhp } from '@react-icons/all-files/si/SiPhp'
 import { SiReact } from '@react-icons/all-files/si/SiReact'
 import { SiJavascript } from '@react-icons/all-files/si/SiJavascript'
 import { SiGatsby } from '@react-icons/all-files/si/SiGatsby'
@@ -30,8 +30,8 @@ const skillsQuery = graphql`
 `
 const icons = {
   wordpress: SiWordpress,
-  woocommerce: SiWoo,
   nginx: SiNginx,
+  php: SiPhp,
   react: SiReact,
   javascript: SiJavascript,
   gatsbyjs: SiGatsby,

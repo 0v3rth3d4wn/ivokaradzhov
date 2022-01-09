@@ -5,40 +5,24 @@
     "subtitle": "This is what I do (and more)",
     "skills": [
       {
+        "name": "JavaScript",
+        "icon": "javascript"
+      },
+      {
         "name": "WordPress",
         "icon": "wordpress"
-      },
-      {
-        "name": "WooCommerce",
-        "icon": "woocommerce"
-      },
-      {
-        "name": "Nginx",
-        "icon": "nginx"
       },
       {
         "name": "React",
         "icon": "react"
       },
       {
-        "name": "JavaScript",
-        "icon": "javascript"
+        "name": "Php",
+        "icon": "php"
       },
       {
         "name": "Gatsby",
         "icon": "gatsbyjs"
-      },
-      {
-        "name": "Webpack",
-        "icon": "webpack"
-      },
-      {
-        "name": "GraphQL",
-        "icon": "graphql"
-      },
-      {
-        "name": "Git",
-        "icon": "git"
       },
       {
         "name": "Sass",
@@ -51,6 +35,22 @@
       {
         "name": "Bootstrap",
         "icon": "bootstrap"
+      },
+      {
+        "name": "Webpack",
+        "icon": "webpack"
+      },
+      {
+        "name": "Git",
+        "icon": "git"
+      },
+      {
+        "name": "GraphQL",
+        "icon": "graphql"
+      },
+      {
+        "name": "Nginx",
+        "icon": "nginx"
       }
     ]
   }

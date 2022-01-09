@@ -44,7 +44,8 @@ function getCenter(element) {
 const Hero = () => {
   const heroRef = useRef()
   const miniTrianglesRefs = useRef([])
-  const miniTriangles = useMemo(() => [...Array(288).keys()], [])
+  const [miniTrianglesCount, setMiniTrianglesCount] = useState(330)
+  const miniTriangles = useMemo(() => [...Array(miniTrianglesCount).keys()], [miniTrianglesCount])
   const scrollY = useScrollPosition(60)
   const windowWidth = useWindowWidth({
     wait: 200,
@@ -60,6 +61,13 @@ const Hero = () => {
 
   // After each window width change, reposition the mountains
   useEffect(() => {
+    if(windowWidth <= 1366) {
+      setMiniTrianglesCount(192)
+       
+    } else {
+      setMiniTrianglesCount(330)
+    }
+
     const mountainBackLeftWidth =
       mountainBackLeftRef.current.getBoundingClientRect().width
     const mountainBackRightWidth =
@@ -69,10 +77,12 @@ const Hero = () => {
     const mountainFrontRightWidth =
       mountainFrontRightRef.current.getBoundingClientRect().width
 
+
     mountainBackLeftRef.current.style.marginLeft = `-${mountainBackLeftWidth}px`
     mountainBackRightRef.current.style.marginRight = `-${mountainBackRightWidth}px`
     mountainFrontLeftRef.current.style.marginLeft = `-${mountainFrontLeftWidth}px`
     mountainFrontRightRef.current.style.marginRight = `-${mountainFrontRightWidth}px`
+
   }, [windowWidth])
 
   // angle for the mini triangles
@@ -113,42 +123,42 @@ const Hero = () => {
       <HeroPattern className="absolute top-0 left-1/2 z-[11] w-full -translate-x-1/2" />
       <motion.div
         ref={mountainBackLeftRef}
-        className="sm:hidden md:block absolute bottom-[287px] left-[60%] md:left-[50%] z-[10]"
+        className="sm:hidden md:block absolute bottom-[287px] left-[60%] md:left-[50%] z-[10] hero-mountain-back-left"
         animate={{ translateX: (1 - scrollY) / 10 }}
       >
         <MountainBackLeft />
       </motion.div>
       <motion.div
         ref={mountainBackRightRef}
-        className="sm:hidden md:block absolute right-[60%] md:right-[50%] bottom-[254px] z-[10]"
+        className="sm:hidden md:block absolute right-[60%] md:right-[50%] bottom-[254px] z-[10] hero-mountain-back-right"
         animate={{ translateX: scrollY / 5 }}
       >
         <MountainBackRight />
       </motion.div>
       <motion.div
         ref={mountainFrontLeftRef}
-        className="sm:hidden md:block absolute bottom-[149px] left-[65%] md:left-[45%] z-[10]"
+        className="sm:hidden md:block absolute bottom-[149px] left-[65%] md:left-[45%] z-[10] hero-mountain-front-left"
         animate={{ translateX: (1 - scrollY) / 2 }}
       >
         <MountainFrontLeft />
       </motion.div>
       <motion.div
         ref={mountainFrontRightRef}
-        className="sm:hidden md:block absolute right-[65%] md:right-[45%] bottom-[77px] z-[10]"
+        className="sm:hidden md:block absolute right-[65%] md:right-[45%] bottom-[77px] z-[10] hero-mountain-front-right"
         animate={{ translateX: scrollY / 1.5 }}
       >
         <MountainFrontRight />
       </motion.div>
-      <BigTriangle className="absolute top-24 left-1/2 z-[12] md:w-[330px] md:h-auto origin-center -translate-x-1/2" />
+      <BigTriangle className="absolute top-24 left-1/2 z-[12] md:w-[330px] xl:w-[400px] md:h-auto origin-center -translate-x-1/2 hero-big-triangle" />
 
-      <HeroGrid className="absolute bottom-0 left-1/2 z-[9] sm:opacity-70 md:opacity-100 -translate-x-1/2" />
-      <HeroName className="absolute top-26 left-1/2 z-[12] w-[320px] h-auto -translate-x-1/2" />
-      <HeroPos className="absolute top-60 left-1/2 z-[12] w-[300px] h-auto -translate-x-1/2" />
+      <HeroGrid className="absolute bottom-0 left-1/2 z-[9] sm:opacity-70 md:opacity-100 -translate-x-1/2 hero-grid" />
+      <HeroName className="absolute top-26 left-1/2 z-[12] w-[320px] xl:w-[500px] h-auto -translate-x-1/2 hero-name" />
+      <HeroPos className="absolute top-60 xl:top-80 left-1/2 z-[12] w-[300px] xl:w-[400px] h-auto -translate-x-1/2 hero-pos" />
       <h1 className="absolute left-1/2 text-primary text-opacity-0 selection:bg-transparent -translate-x-1/2">
         Ivo Karadzhov, Full-stack Web Developer
       </h1>
 
-      <div className="hidden xl:grid absolute top-[300px] left-1/2 grid-cols-[repeat(24,minmax(0,1fr))] gap-4 -translate-x-1/2">
+      <div className="hidden xl:grid absolute top-[144px] left-1/2 z-[11] grid-cols-[repeat(30,minmax(0,1fr))] gap-4 -translate-x-1/2 hero-mini-triangles">
         {miniTriangles &&
           miniTriangles.map((triangle, index) => (
             <div

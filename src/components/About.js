@@ -100,7 +100,9 @@ const About = () => {
             >
               web development
             </a>{' '}
-            agency. <br />
+            agency.
+          </p>
+          <p className="mb-4">
             My goal is to create stylish, meaningful, and robust websites,
             combined with great user experience. I have been in the industry for
             more than <strong>10 years</strong> now and I have the skillset and
@@ -118,7 +120,7 @@ const About = () => {
             My path was very rich in terms of{' '}
             <AnchorLink to="/#skills">technology stack</AnchorLink> and I've
             always worked both on the backend and the frontend and I've managed
-            to adapt quickly depending on the situation.
+            to adapt quickly depending on the situation. I also love <strong>Linux</strong>.
           </p>
 
           <p className="mb-4">
@@ -135,10 +137,7 @@ const About = () => {
           </p>
 
           <p className="mb-4">
-            I believe that people should be invested in what they like to do,
-            hold yourself accountable, take no shortcuts, give honest feedback,
-            and give back to the communities you are involved in. I believe that
-            there is a right tool for every job.
+            I believe in honest feedback, accountability, learning from past mistakes, and giving back to the communities a person is involved in. I also believe that there is a right tool for every job.
           </p>
           <p className="mb-4">
             Use the big button <AnchorLink to="/#contact">below</AnchorLink> or
