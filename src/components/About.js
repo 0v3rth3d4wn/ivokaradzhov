@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
 import { StaticImage } from 'gatsby-plugin-image'
-import { motion } from 'framer-motion'
 import gsap from 'gsap'
 import Obfuscate from 'react-obfuscate'
 import { AnchorLink } from 'gatsby-plugin-anchor-links'
@@ -71,7 +70,7 @@ const About = () => {
             alt={name}
             imgClassName="rounded-full avatar-gradient"
             className="mb-6 w-[144px] md:w-[192px] xl:w-[256px] h-[144px] md:h-[192px] xl:h-[256px] rounded-full avatar-gradient"
-            quality="100"
+            quality="75"
             breakpoints={[480, 750, 1080]}
           />
           <div className="text-2xl font-bold text-center text-white uppercase">

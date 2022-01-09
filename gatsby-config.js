@@ -14,7 +14,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-plugin-sharp',
+      options: {
+        defaults: {
+          placeholder: "blurred"
+        }
+      }
+    },
     {
       resolve: 'gatsby-plugin-react-svg',
       options: {

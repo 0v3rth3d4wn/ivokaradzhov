@@ -22,7 +22,7 @@ const RetroPC = () => {
         className="block sm:hidden w-full h-auto"
         layout="fullWidth"
         src="../assets/images/computer.jpg"
-        quality="75"
+        quality="50"
         aspectRatio={1 / 1.5}
         breakpoints={[480, 750, 1080]}
       />
