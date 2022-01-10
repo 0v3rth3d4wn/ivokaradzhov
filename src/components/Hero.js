@@ -123,28 +123,28 @@ const Hero = () => {
       <HeroPattern className="absolute top-0 left-1/2 z-[11] w-full -translate-x-1/2" />
       <motion.div
         ref={mountainBackLeftRef}
-        className="sm:hidden md:block absolute bottom-[287px] left-[60%] md:left-[50%] z-[10] hero-mountain-back-left"
+        className="sm:hidden md:block absolute bottom-[287px] left-[60%] md:left-[50%] z-[10] ml-[-1292px] hero-mountain-back-left"
         animate={{ translateX: (1 - scrollY) / 10 }}
       >
         <MountainBackLeft />
       </motion.div>
       <motion.div
         ref={mountainBackRightRef}
-        className="sm:hidden md:block absolute right-[60%] md:right-[50%] bottom-[254px] z-[10] hero-mountain-back-right"
+        className="sm:hidden md:block absolute right-[60%] md:right-[50%] bottom-[254px] z-[10] mr-[-1385px] hero-mountain-back-right"
         animate={{ translateX: scrollY / 5 }}
       >
         <MountainBackRight />
       </motion.div>
       <motion.div
         ref={mountainFrontLeftRef}
-        className="sm:hidden md:block absolute bottom-[149px] left-[65%] md:left-[45%] z-[10] hero-mountain-front-left"
+        className="sm:hidden md:block absolute bottom-[149px] left-[65%] md:left-[45%] z-[10] ml-[-1026px] hero-mountain-front-left"
         animate={{ translateX: (1 - scrollY) / 2 }}
       >
         <MountainFrontLeft />
       </motion.div>
       <motion.div
         ref={mountainFrontRightRef}
-        className="sm:hidden md:block absolute right-[65%] md:right-[45%] bottom-[77px] z-[10] hero-mountain-front-right"
+        className="sm:hidden md:block absolute right-[65%] md:right-[45%] bottom-[77px] z-[10] mr-[-996px] hero-mountain-front-right"
         animate={{ translateX: scrollY / 1.5 }}
       >
         <MountainFrontRight />
