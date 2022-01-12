@@ -7,6 +7,6 @@
     "tailwindcss"
   ],
   "rules": {
-    "tailwind/no-custom-classname": "disabled"
+    "tailwind/no-custom-classname": "off"
   }
 }

@@ -83,43 +83,33 @@ const About = () => {
         <div>
           <p className="mb-4">
             Hi, my name is <strong>Ivo</strong> and I'm a{' '}
-            <strong>web developer</strong>. I currently work at{' '}
-            <a
-              href="https://ralev.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ralev.com
-            </a>{' '}
-            - design and{' '}
-            <a
-              href="https://dev.ralev.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              web development
-            </a>{' '}
-            agency.
+            <strong>web developer</strong> with over <strong>10 years</strong>{' '}
+            of experience.
           </p>
           <p className="mb-4">
             My goal is to create stylish, meaningful, and robust websites,
-            combined with great user experience. I have been in the industry for
-            more than <strong>10 years</strong> now and I have the skillset and
-            the mindset to deliver <strong>end products</strong> and{' '}
-            <strong>working solutions</strong>.
+            combined with great user experience. For all the years I have been
+            in the industry, I have developed the skillset and the mindset to
+            not only deliver high-quality <strong>end products</strong> and{' '}
+            <strong>working solutions</strong>, but to create memorable user
+            experiences.
           </p>
           <p className="mb-4">
-            I stared with Flash and ActionScript 2 in high school around 2005
-            and then transitioned to creating MySpace custom layouts in 2006
-            with HTML and CSS. From 2010 onwards I've been a part of 2 agencies,
-            worked as a freelancer, volunteered, and continiously improved.
+            I stared with Flash and ActionScript 2 back in high school around
+            2005 and then transitioned to creating MySpace custom layouts with
+            HTML and CSS. From 2010 onwards I've been part of{' '}
+            <strong>two leading agencies</strong>, worked as a{' '}
+            <strong>freelancer</strong>, <strong>volunteered</strong> with my
+            skills for important social causes, and{' '}
+            <strong>continiously improved</strong>.
           </p>
 
           <p className="mb-4">
             My path was very rich in terms of{' '}
             <AnchorLink to="/#skills">technology stack</AnchorLink> and I've
-            always worked both on the backend and the frontend and I've managed
-            to adapt quickly depending on the situation. I also love <strong>Linux</strong>.
+            always worked both on the backend and the frontend, always managing
+            and enjoying to adapt quickly to the constantly changing challenges
+            of the industry. I also love <strong>Linux</strong>.
           </p>
 
           <p className="mb-4">
@@ -132,11 +122,21 @@ const About = () => {
               Gatsby
             </a>{' '}
             to create static websites while using{' '}
-            <a href="https://wordpress.org/">WordPress</a> as a headless CMS.
+            <a
+              href="https://wordpress.org/"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {' '}
+              WordPress
+            </a>{' '}
+            as a headless CMS.
           </p>
 
           <p className="mb-4">
-            I believe in honest feedback, accountability, learning from past mistakes, and giving back to the communities a person is involved in. I also believe that there is a right tool for every job.
+            There are three things that mostly influenced my career path so far
+            - honest feedback, learning from past mistakes, and giving back to
+            the community.
           </p>
           <p className="mb-4">
             Use the big button <AnchorLink to="/#contact">below</AnchorLink> or
