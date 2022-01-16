@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const Footer = () => (
-  <footer className="px-8 text-white text-xs text-center">
+  <footer className="px-8 text-xs text-center text-white">
     Copyright &copy; {new Date().getFullYear()} Ivo Karadzhov |{' '}
-    <Link to="/terms">Terms of use</Link>
+    {/* <Link to="/terms">Terms of use</Link> */}
   </footer>
 )
 
