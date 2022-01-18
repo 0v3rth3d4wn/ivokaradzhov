@@ -95,7 +95,7 @@ const About = () => {
             experiences.
           </p>
           <p className="mb-4">
-            I stared with Flash and ActionScript 2 back in high school around
+            I started with Flash and ActionScript 2 back in high school around
             2005 and then transitioned to creating MySpace custom layouts with
             HTML and CSS. From 2010 onwards I've been part of{' '}
             <strong>two leading agencies</strong>, worked as a{' '}
