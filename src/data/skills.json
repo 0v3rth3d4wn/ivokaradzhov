@@ -13,12 +13,12 @@
         "icon": "wordpress"
       },
       {
-        "name": "React",
-        "icon": "react"
-      },
-      {
         "name": "Php",
         "icon": "php"
+      },
+      {
+        "name": "React",
+        "icon": "react"
       },
       {
         "name": "Gatsby",

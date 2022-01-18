@@ -10,11 +10,6 @@
     "key": "skills"
   },
   {
-    "text": "Work",
-    "to": "/#work",
-    "key": "work"
-  },
-  {
     "text": "Contact",
     "to": "/#contact",
     "key": "contact"

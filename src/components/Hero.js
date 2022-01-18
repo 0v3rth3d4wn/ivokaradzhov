@@ -45,7 +45,10 @@ const Hero = () => {
   const heroRef = useRef()
   const miniTrianglesRefs = useRef([])
   const [miniTrianglesCount, setMiniTrianglesCount] = useState(330)
-  const miniTriangles = useMemo(() => [...Array(miniTrianglesCount).keys()], [miniTrianglesCount])
+  const miniTriangles = useMemo(
+    () => [...Array(miniTrianglesCount).keys()],
+    [miniTrianglesCount]
+  )
   const scrollY = useScrollPosition(60)
   const windowWidth = useWindowWidth({
     wait: 200,
@@ -61,9 +64,8 @@ const Hero = () => {
 
   // After each window width change, reposition the mountains
   useEffect(() => {
-    if(windowWidth <= 1366) {
+    if (windowWidth <= 1366) {
       setMiniTrianglesCount(192)
-       
     } else {
       setMiniTrianglesCount(330)
     }
@@ -77,12 +79,10 @@ const Hero = () => {
     const mountainFrontRightWidth =
       mountainFrontRightRef.current.getBoundingClientRect().width
 
-
     mountainBackLeftRef.current.style.marginLeft = `-${mountainBackLeftWidth}px`
     mountainBackRightRef.current.style.marginRight = `-${mountainBackRightWidth}px`
     mountainFrontLeftRef.current.style.marginLeft = `-${mountainFrontLeftWidth}px`
     mountainFrontRightRef.current.style.marginRight = `-${mountainFrontRightWidth}px`
-
   }, [windowWidth])
 
   // angle for the mini triangles
